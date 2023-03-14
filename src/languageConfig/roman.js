@@ -8,4 +8,5 @@ export default {
     enter_mobile_number: 'Apna phone number likhein',
     we_will_send_you_verification_code: 'Ham aapko code SMS karein ge.',
     we_have_sent_a_verification_code_to: 'Ham ne verification code bhej diya hai',
+    select_theme:"APP KI THEME SELECT KAREIN"
 }

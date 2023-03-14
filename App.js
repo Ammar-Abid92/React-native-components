@@ -5,26 +5,21 @@ import { NavigationContainer } from '@react-navigation/native'
 import Routes from './src/routes';
 import { NativeBaseProvider } from 'native-base';
 import { LanguageProvider } from './src/context/LanguageContext';
-
-
+import { ThemeProvider } from './src/context/ThemeContext';
 
 const App = () => {
-
-
 
   useEffect(() => {
     SplashScreen.hide();
   }, [])
 
   return (
-    <LanguageProvider>
-
-      {/* below is the props that is being passed to the language provider */}
-
-      <NativeBaseProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        {/* below is the props that is being passed to the language provider */}
         <Routes />
-      </NativeBaseProvider>
-    </LanguageProvider>
+      </LanguageProvider>
+    </ThemeProvider>
   )
 }
 
