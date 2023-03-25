@@ -1,5 +1,7 @@
 import mySplashImage from './images/mySplash2.jpg';
+import welcomeImage from './images/welcome.jpg'
 
 export {
-    mySplashImage as splashImg
+    mySplashImage as splashImg,
+    welcomeImage as welcomeImg
 }

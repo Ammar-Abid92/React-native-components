@@ -16,8 +16,7 @@ const CustomModal = ({
     toggle,
     setToggle,
     language,
-    chooseLanguage,
-    chooseTheme,
+    action1,
 
 }) => {
 
@@ -92,7 +91,7 @@ const CustomModal = ({
                                             ? { ...styles.btnLanguageSelect, backgroundColor: theme.highlight }
                                             : { ...styles.btnLanguage, backgroundColor: theme.highlight }
                                     }
-                                    onPress={() => chooseLanguage('en')}>
+                                    onPress={() => action1('en')}>
 
                                     <Text
                                         style={
@@ -118,7 +117,7 @@ const CustomModal = ({
                                             ? { ...styles.btnLanguageSelect, backgroundColor: theme.highlight }
                                             : { ...styles.btnLanguage, backgroundColor: theme.highlight }
                                     }
-                                    onPress={() => chooseLanguage('roman')}>
+                                    onPress={() => action1('roman')}>
 
                                     <Text
                                         style={
@@ -137,7 +136,8 @@ const CustomModal = ({
                 </View>
             </Modal>
         )
-    } else if (type === "themeModal") {
+    }
+    else if (type === "themeModal") {
         return (
             <Modal
                 isVisible={toggle}
@@ -162,7 +162,7 @@ const CustomModal = ({
                                 justifyContent: 'space-between',
                                 alignItems: 'center',
                                 borderBottomWidth: 2,
-                                borderColor:  theme.jacketColor,
+                                borderColor: theme.jacketColor,
                             }}>
                             <View style={{ marginLeft: 15 }}>
                                 <Text style={{ fontSize: 16, color: themeStyleSheet.mainColor }}>
@@ -198,13 +198,13 @@ const CustomModal = ({
                                     alignItems: 'center',
                                 }}>
                                 <TouchableOpacity
-                                    
+
                                     style={
                                         language === 'en'
                                             ? { ...styles.btnLanguageSelect, backgroundColor: theme.highlight }
                                             : { ...styles.btnLanguage, backgroundColor: theme.highlight }
                                     }
-                                    onPress={() => chooseTheme("orangeTheme")}>
+                                    onPress={() => action1("orangeTheme")}>
 
                                     <Text
                                         style={
@@ -230,7 +230,7 @@ const CustomModal = ({
                                             ? { ...styles.btnLanguageSelect, backgroundColor: theme.highlight }
                                             : { ...styles.btnLanguage, backgroundColor: theme.highlight }
                                     }
-                                    onPress={() => chooseTheme('pinkTheme')}>
+                                    onPress={() => action1('pinkTheme')}>
 
                                     <Text
                                         style={
@@ -243,6 +243,60 @@ const CustomModal = ({
                                 </TouchableOpacity>
                             </View>
 
+
+                        </View>
+                    </View>
+                </View>
+            </Modal>
+        )
+    } else if (type === "welcome") {
+        return (
+            <Modal
+                isVisible={toggle}
+                animationIn="slideInUp"
+                animationOut="slideOutDown"
+                style={{ margin: 0 }}
+                useNativeDriver
+                onBackdropPress={() => setToggle(false)}
+            >
+                <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+                    <View
+                        style={{
+                            backgroundColor: "white",
+                            width: width,
+                            borderTopLeftRadius: 45,
+                            borderTopRightRadius: 45,
+                            height: height * 0.5
+                        }}>
+                        
+
+                        <View
+                            style={{
+                                height: height * 0.25,
+                                justifyContent: 'center',
+                                alignItems: 'flex-start',
+                                marginTop: 10
+                            }}>
+                            <View
+                                style={{
+                                    width: '80%',
+                                    flexDirection: 'column',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                }}>
+                                <Text
+                                numberOfLines={2}
+                                    style={
+                                        {
+                                            color:theme.dark,
+                                            fontSize:20,
+                                            fontWeight:'bold'
+                                        }
+                                    }
+                                >
+                                    {I18n.pick_component}
+                                </Text>
+                            </View>
 
                         </View>
                     </View>
