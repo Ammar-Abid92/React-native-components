@@ -7,6 +7,7 @@ import roman from '../../../languageConfig/roman'
 import { ThemeContext } from '../../../context/ThemeContext'
 import { orangeTheme, pinkTheme } from '../../../constants/theme'
 import { welcomeImg } from '../../../assets'
+import Header from '../../common/Header'
 
 const { height, width, fontScale } = Dimensions.get('window');
 
@@ -54,6 +55,8 @@ const WelcomeScreen = () => {
 
     return (
         <View style={{ flex: 1 }}>
+
+            <Header />
 
             <View
                 style={{

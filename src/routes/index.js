@@ -16,7 +16,15 @@ const Routes = () => {
                 headerShown: false
             }}>
                 <Stack.Screen name="splashScreen" component={SplashScreen}  />
-                <Stack.Screen name="welcome" component={WelcomeScreen} />
+                <Stack.Screen name="welcome" component={WelcomeScreen}
+                
+                // options={{
+                //     headerStyle: {
+                //         backgroundColor: '#e7305b'
+                //     }
+                // }} 
+                
+                />
 
             </Stack.Navigator>
         </NavigationContainer>

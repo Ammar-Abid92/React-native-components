@@ -5,7 +5,10 @@ import { themeStyleSheet } from '../../../constants';
 import { LanguageContext } from '../../../context/LanguageContext';
 import spacing from '../../../constants/spacing';
 import { ThemeContext } from '../../../context/ThemeContext';
-import { color } from 'native-base/lib/typescript/theme/styled-system';
+import * as Animatable from "react-native-animatable";
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import CustomButton from '../Button';
+
 
 
 const { height, width, fontScale } = Dimensions.get('window');
@@ -19,6 +22,15 @@ const CustomModal = ({
     action1,
 
 }) => {
+
+    const anim = {
+        from: {
+            top: 0,
+        },
+        to: {
+            top: 65,
+        },
+    };
 
     const [I18n, changeLanguage] = useContext(LanguageContext)
     const [theme, setTheme] = useContext(ThemeContext)
@@ -266,15 +278,15 @@ const CustomModal = ({
                             width: width,
                             borderTopLeftRadius: 45,
                             borderTopRightRadius: 45,
-                            height: height * 0.5
+                            height: height * 0.4
                         }}>
-                        
+
 
                         <View
                             style={{
                                 height: height * 0.25,
                                 justifyContent: 'center',
-                                alignItems: 'flex-start',
+                                // alignItems: 'flex-start',
                                 marginTop: 10
                             }}>
                             <View
@@ -283,20 +295,45 @@ const CustomModal = ({
                                     flexDirection: 'column',
                                     justifyContent: 'center',
                                     alignItems: 'center',
+
                                 }}>
                                 <Text
-                                numberOfLines={2}
+                                    numberOfLines={2}
                                     style={
                                         {
-                                            color:theme.dark,
-                                            fontSize:20,
-                                            fontWeight:'bold'
+                                            color: theme.dark,
+                                            fontSize: 20,
+                                            fontWeight: 'bold',
+                                            marginLeft:20,
+                                            marginTop:8
                                         }
                                     }
                                 >
                                     {I18n.pick_component}
                                 </Text>
                             </View>
+
+                            <View style={{
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                marginTop: 20
+                            }}
+                            >
+
+                                <Animatable.View animation={anim} iterationCount={'infinite'} easing='linear' duration={500} direction="alternate">
+                                    <Icon name="arrow-down" size={35} color={theme.dark} />
+                                </Animatable.View>
+                            </View>
+
+                            <View style={{
+                                justifyContent: 'center',
+                                width: width*0.5,
+                                top:70,
+                                marginLeft:"25%",
+                            }} >
+                                <CustomButton type="elevated" onPress={()=>setToggle(false)} />
+                            </View>
+
 
                         </View>
                     </View>

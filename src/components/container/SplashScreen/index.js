@@ -2,7 +2,7 @@ import { View, Text, Image, Platform, Dimensions } from 'react-native'
 import React from 'react'
 import { splashImg } from '../../../assets'
 // import { Spinner } from 'native-base'
-import { ActivityIndicator, MD2Colors } from 'react-native-paper';
+import { ActivityIndicator } from 'react-native-paper';
 
 import { themeStyleSheet } from '../../../constants'
 import spacing from '../../../constants/spacing'
