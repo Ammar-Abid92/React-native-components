@@ -5,17 +5,17 @@ import { ThemeContext } from '../../../context/ThemeContext'
 import { Appbar } from 'react-native-paper';
 
 
-const Header = () => {
+const Header = ({title, firstIcon, firstAction, secondIcon, secondAction, backAction}) => {
 
   const [I18n, changeLanguage] = useContext(LanguageContext)
   const [theme, setTheme] = useContext(ThemeContext)
 
   return (
     <Appbar.Header>
-      <Appbar.BackAction onPress={() => { }} />
-      <Appbar.Content title="Title" />
-      <Appbar.Action icon="calendar" onPress={() => { }} />
-      <Appbar.Action icon="magnify" onPress={() => { }} />
+     {backAction ? <Appbar.BackAction onPress={backAction} /> : null }
+      <Appbar.Content title={title} />
+      <Appbar.Action icon={firstIcon} onPress={firstAction} />
+      <Appbar.Action icon={secondIcon} onPress={secondAction} />
     </Appbar.Header>
   )
 }

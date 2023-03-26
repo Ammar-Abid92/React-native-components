@@ -9,5 +9,6 @@ export default {
     we_will_send_you_verification_code: 'Ham aapko code SMS karein ge.',
     we_have_sent_a_verification_code_to: 'Ham ne verification code bhej diya hai',
     select_theme:"APP KI THEME SELECT KAREIN",
-    pick_component: "Uthaen apni zaroorat k mutabiq koi bhi app component"
+    pick_component: "Uthaen apni zaroorat k mutabiq koi bhi app component",
+    configure_app: "Apni app ki setting kren"
 }

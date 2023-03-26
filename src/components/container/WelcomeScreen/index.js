@@ -8,6 +8,7 @@ import { ThemeContext } from '../../../context/ThemeContext'
 import { orangeTheme, pinkTheme } from '../../../constants/theme'
 import { welcomeImg } from '../../../assets'
 import Header from '../../common/Header'
+import CustomButton from '../../common/Button'
 
 const { height, width, fontScale } = Dimensions.get('window');
 
@@ -24,10 +25,10 @@ const WelcomeScreen = () => {
 
 
     useEffect(() => {
-        let modalView = setTimeout(()=>{
+        let modalView = setTimeout(() => {
             setWelcomeModal(true)
         }, 3000)
-    
+
         return () => clearTimeout(modalView);
     }, []);
 
@@ -54,53 +55,53 @@ const WelcomeScreen = () => {
     }
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
-            <Header />
+            {/* <Header title="Welcome" /> */}
 
-            <View
-                style={{
-                    height: height * 0.15,
-                    flexDirection: 'row',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                }}>
-                <View style={{ marginLeft: 15 }}>
-                    <Text style={{ fontSize: 16, color: theme.dark }}>
-                        {I18n.welcome}
-                    </Text>
+            <View style={{ marginTop: 60, height:90 }} >
+                <Text style={{ fontSize: 30, color: theme.text, fontFamily: 'Inter-Bold' }}>
+                    {I18n.welcome}
+                </Text>
+            </View>
+
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
+                <Text style={{ fontSize: 18, color: theme.dark, fontFamily: 'Inter-Bold' }}>
+                    {I18n.configure_app}
+                </Text>
+                <View style={{ flexDirection: 'row'}} >
+
+                    <TouchableOpacity
+                        onPress={() => setLanguageModal(true)}>
+                        <View style={{ borderWidth: 1, width: width * 0.4, margin: 5, padding: 10, borderRadius: 15, backgroundColor: theme.highlight }} >
+                            <Text>
+                                Change Language ? Click here
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        onPress={() => setThemeModal(true)}>
+                        <View style={{ borderWidth: 1, width: width * 0.4, margin: 5, padding: 10, borderRadius: 15, backgroundColor: theme.highlight }} >
+                            <Text>
+                                Change Theme ? Click here
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
                 </View>
             </View>
 
-            <CustomModal
+
+            <View style={{marginBottom:60, width:width*0.5}} >
+                <CustomButton type="contained" title="Next" btnColor={theme.text} txtColor={theme.body} />
+            </View>
+
+            {/* <CustomModal
                 type="welcome"
                 toggle={welcomeModal}
                 setToggle={setWelcomeModal}
                 language={language}
-            />
-
-            <View style={{ margin: 20 }}>
-
-                <TouchableOpacity
-                    onPress={() => setLanguageModal(true)}>
-                    <Text>
-                        Change Language ? Click here
-                    </Text>
-                </TouchableOpacity>
-
-            </View>
-
-            <View style={{ margin: 20 }}>
-
-                <TouchableOpacity
-                    onPress={() => setThemeModal(true)}>
-                    <Text>
-                        Change Theme ? Click here
-                    </Text>
-                </TouchableOpacity>
-
-            </View>
-
+            /> */}
 
             {languageModal &&
                 <CustomModal

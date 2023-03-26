@@ -3,10 +3,22 @@ import React from 'react'
 import { Button } from 'react-native-paper';
 
 
-const CustomButton = ({type, icon, onPress}) => {
+const CustomButton = ({type, icon, onPress, title, btnColor, txtColor}) => {
   return type === "elevated" ?
-    <Button icon={icon ? icon : ""} mode="elevated" onPress={onPress}>
-        Let's grab
+    <Button icon={icon ? icon : ""} mode="elevated" onPress={onPress} buttonColor={btnColor} textColor={txtColor} >
+        {title}
+    </Button>
+    : type === "contained" ?
+    <Button icon={icon ? icon : ""} mode="contained" onPress={onPress} buttonColor={btnColor} textColor={txtColor} >
+        {title}
+    </Button>
+    : type === "outlined" ?
+    <Button icon={icon ? icon : ""} mode="outlined" onPress={onPress} buttonColor={btnColor} textColor={txtColor}>
+        {title}
+    </Button>
+    : type === "contained-tonal" ?
+    <Button icon={icon ? icon : ""} mode="contained-tonal" onPress={onPress} buttonColor={btnColor} textColor={txtColor}>
+        {title}
     </Button>
     : null
 }

@@ -303,9 +303,9 @@ const CustomModal = ({
                                         {
                                             color: theme.dark,
                                             fontSize: 20,
-                                            fontWeight: 'bold',
                                             marginLeft:20,
-                                            marginTop:8
+                                            marginTop:8,
+                                            fontFamily:'Roboto-MediumItalic'
                                         }
                                     }
                                 >
@@ -331,7 +331,7 @@ const CustomModal = ({
                                 top:70,
                                 marginLeft:"25%",
                             }} >
-                                <CustomButton type="elevated" onPress={()=>setToggle(false)} />
+                                <CustomButton type="elevated" title="Let's grab" btnColor={theme.dark} txtColor={theme.secondaryText} onPress={()=>setToggle(false)} />
                             </View>
 
 
